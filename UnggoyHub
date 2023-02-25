@@ -1,0 +1,50 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("UnggoyHub", "BloodTheme")
+
+-- Main 
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("UniversalHub") 
+
+
+MainSection:NewButton("Infinite Yield", "Admin Script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+
+MainSection:NewButton("Fates ESP & Aimbot", "Simple Universal ESP and AIMBOT", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/fatesc/fates-esp/main/main.lua'))()
+end)
+
+
+MainSection:NewButton("AirHub", "Advanced Universal ESP and AIMBOT", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/fatesc/fates-esp/main/main.lua'))()
+end)
+
+
+-- Others
+local Other = Window:NewTab("Other")
+local OtherSection = Other:NewSection("Other")
+
+OtherSection:NewButton("Proxima Hub", "Ninja Legends Script BY:TrixAde", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"))()
+end)
+
+
+OtherSection:NewButton("HoHoHub", "Blox Fruits OP Script BY:acsu123", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+end)
+
+
+-- Player
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Local Player")
+
+
+PlayerSection:NewSlider("WalkSpeed", "The Flash", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+
+PlayerSection:NewSlider("JumpPower", "Hulk jump", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
