@@ -21,25 +21,6 @@ MainSection:NewButton("AirHub", "Advanced Universal ESP and AIMBOT", function()
 end)
 
 
--- Others
-local Other = Window:NewTab("Other")
-local OtherSection = Other:NewSection("Other")
-
-OtherSection:NewButton("Proxima Hub", "Ninja Legends Script BY:TrixAde", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"))()
-end)
-
-
-OtherSection:NewButton("HoHo Hub", "Blox Fruits OP Script BY:acsu123", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
-end)
-
-
-OtherSection:NewButton("Doors", "OP Doors Script BY:Vynixius", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))()
-end)
-
-
 --Admin
 local Admin = Window:NewTab("Admin")
 local AdminSection = Admin:NewSection("Admin")
@@ -56,6 +37,25 @@ end)
 
 AdminSection:NewButton("CMD-X", "Admin Script", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+end)
+
+
+-- Others
+local Other = Window:NewTab("Other")
+local OtherSection = Other:NewSection("Other")
+
+OtherSection:NewButton("Proxima Hub", "Ninja Legends Script BY:TrixAde", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"))()
+end)
+
+
+OtherSection:NewButton("HoHo Hub", "Blox Fruits OP Script BY:acsu123", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+end)
+
+
+OtherSection:NewButton("Doors", "OP Doors Script BY:Vynixius", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))()
 end)
 
 
