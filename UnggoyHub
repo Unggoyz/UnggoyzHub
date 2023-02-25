@@ -30,7 +30,7 @@ OtherSection:NewButton("Proxima Hub", "Ninja Legends Script BY:TrixAde", functio
 end)
 
 
-OtherSection:NewButton("HoHoHub", "Blox Fruits OP Script BY:acsu123", function()
+OtherSection:NewButton("HoHo Hub", "Blox Fruits OP Script BY:acsu123", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
 end)
 
