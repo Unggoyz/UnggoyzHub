@@ -59,6 +59,11 @@ OtherSection:NewButton("Doors", "OP Doors Script BY:Vynixius", function()
 end)
 
 
+OtherSection:NewButton("BIG Paintball", "OP Paintball Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/radjahfromdiscord/iNEXT/main/source"))()
+end)
+
+
 -- Player
 local Player = Window:NewTab("Player")
 local PlayerSection = Player:NewSection("Local Player")
