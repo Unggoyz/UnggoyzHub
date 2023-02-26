@@ -78,6 +78,7 @@ PlayerSection:NewSlider("JumpPower", "Hulk jump", 500, 50, function(s) -- 500 (M
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
 end)
 
+
 PlayerSection:NewButton("Resets Speed/Jump", "resets back to default", function()
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
