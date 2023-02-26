@@ -17,7 +17,7 @@ end)
 
 
 MainSection:NewButton("AirHub", "Advanced Universal ESP and AIMBOT", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/fatesc/fates-esp/main/main.lua'))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/AirHub/main/AirHub.lua"))()
 end)
 
 
