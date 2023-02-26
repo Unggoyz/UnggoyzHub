@@ -64,6 +64,10 @@ OtherSection:NewButton("BIG Paintball", "OP Paintball Script", function()
 end)
 
 
+OtherSection:NewButton("Arcade Odyssey", "Working Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xtrey10x/xtrey10x-hub/main/Arcane%20Odyssey%20Script"))()
+end)
+
 -- Player
 local Player = Window:NewTab("Player")
 local PlayerSection = Player:NewSection("Local Player")
