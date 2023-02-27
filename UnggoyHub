@@ -70,7 +70,7 @@ end)
 
 
 OtherSection:NewButton("Legend of Speed", "Simple AutoFarm BY:Unggoy#3120", function()
-    https://raw.githubusercontent.com/Unggoyz/SpeedLegendScript/main/SpeedLegendScript
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Unggoyz/SpeedLegendScript/main/SpeedLegendScript"))()
 end)
 
 -- Player
