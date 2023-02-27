@@ -92,3 +92,13 @@ PlayerSection:NewButton("Reset Speed/Jump", "resets back to default", function()
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 end)
+
+PlayerSection:NewToggle("Infinite Jump", "Jump Infinitely", function()
+        local InfiniteJumpEnabled = true
+        game:GetService("UserInputService").JumpRequest:connect(function()
+            if InfiniteJumpEnabled then
+                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+            end
+        end)
+    end)
+
