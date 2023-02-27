@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("UnggoyHub", "Synapse")
+local Window = Library.CreateLib("UnggoyHub", "BloodTheme")
 
 -- Main 
 local Main = Window:NewTab("Main")
@@ -59,13 +59,18 @@ OtherSection:NewButton("Doors", "OP Doors Script BY:Vynixius", function()
 end)
 
 
-OtherSection:NewButton("BIG Paintball", "OP Paintball Script", function()
+OtherSection:NewButton("BIG Paintball", "OP Paintball Script BY:radjah", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/radjahfromdiscord/iNEXT/main/source"))()
 end)
 
 
-OtherSection:NewButton("Arcade Odyssey", "Working Script", function()
+OtherSection:NewButton("Arcade Odyssey", "Script made BY:xtrey10x", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xtrey10x/xtrey10x-hub/main/Arcane%20Odyssey%20Script"))()
+end)
+
+
+OtherSection:NewButton("Legend of Speed", "Simple AutoFarm BY:Unggoy#3120", function()
+    https://raw.githubusercontent.com/Unggoyz/SpeedLegendScript/main/SpeedLegendScript
 end)
 
 -- Player
@@ -83,7 +88,7 @@ PlayerSection:NewSlider("JumpPower", "Hulk jump", 500, 50, function(s) -- 500 (M
 end)
 
 
-PlayerSection:NewButton("Resets Speed/Jump", "resets back to default", function()
+PlayerSection:NewButton("Reset Speed/Jump", "resets back to default", function()
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
 end)
