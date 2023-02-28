@@ -73,6 +73,10 @@ OtherSection:NewButton("Legend of Speed", "Simple AutoFarm BY:Unggoy#3120", func
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Unggoyz/SpeedLegendScript/main/SpeedLegendScript"))()
 end)
 
+OtherSection:NewButton("BubbleGumClicker", "In development script BY:Unggoy#3120", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Unggoyz/BubbleGumClicker/main/BGC%20Script'))()
+end)
+
 -- Player
 local Player = Window:NewTab("Player")
 local PlayerSection = Player:NewSection("Local Player")
