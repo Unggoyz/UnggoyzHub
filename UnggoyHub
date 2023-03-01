@@ -1,108 +1,266 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("UnggoyHub", "BloodTheme")
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "UnggoyzHub", HidePremium = false, IntroText = "Welcome! | UnggoyzHub", SaveConfig = true, ConfigFolder = "Config"})
 
--- Main 
-local Main = Window:NewTab("Main")
-local MainSection = Main:NewSection("UniversalHub") 
+OrionLib:MakeNotification({
+	Name = "UnggoyzHub|Made By:Unggoy#3120",
+	Content = "WELCOME!!",
+	Image = "rbxassetid://9792634075",
+	Time = 10
+})
 
-
-MainSection:NewButton("Infinite Yield", "Admin Script", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
-
-
-MainSection:NewButton("Fates ESP & Aimbot", "Simple Universal ESP and AIMBOT", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/fatesc/fates-esp/main/main.lua'))()
-end)
+--Values--
 
 
-MainSection:NewButton("AirHub", "Advanced Universal ESP and AIMBOT", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/AirHub/main/AirHub.lua"))()
-end)
+--Functions--
+function InfYield()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end
+
+function AirHub()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/AirHub/main/AirHub.lua"))()
+end
+
+function WheelHub()
+	loadstring(game:HttpGet('https://scripts.luawl.com/15362/KeshHub.lua'))()
+end
+
+function FatesEsp()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/fatesc/fates-esp/main/main.lua'))()
+end
+
+function CMDX()
+	loadstring(game:HttpGet(" https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+end
+
+function FatesAdmin()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))()
+end
+
+function Proxima()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"))()
+end
+
+function HOHO()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
+end
+
+function Doors()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))()
+end
+
+function Paintball()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/radjahfromdiscord/iNEXT/main/source"))()
+end
+
+function ArcaneOD()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/xtrey10x/xtrey10x-hub/main/Arcane%20Odyssey%20Script"))()
+end
+
+function LofS()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Unggoyz/SpeedLegendScript/main/SpeedLegendScript"))()
+end
+
+function BGC()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Unggoyz/BubbleGumClicker/main/BGC%20Script'))()
+end
+
+function Reset()
+	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+   	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end
+
+function exit()
+	OrionLib:Destroy()
+end
+
+	
+--Tabs--
+local MainTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://9792650361",
+	PremiumOnly = false
+})
+
+local AdminTab = Window:MakeTab({
+	Name = "Admin",
+	Icon = "rbxassetid://10006089373",
+	PremiumOnly = false
+})
+
+local OtherTab = Window:MakeTab({
+	Name = "Other",
+	Icon = "rbxassetid://9792634811",
+	PremiumOnly = false
+})
+
+local PlayerTab = Window:MakeTab({
+	Name = "Player",
+	Icon = "rbxassetid://9766672602",
+	PremiumOnly = false
+})
+
+local CreditsTab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://9766675093",
+	PremiumOnly = false
+})
+--Sections--
+local Section = MainTab:AddSection({
+	Name = "Universal Scripts"
+})
+
+local Section = AdminTab:AddSection({
+	Name = "Admin Scripts"
+})
+
+local Section = OtherTab:AddSection({
+	Name = "More Scripts"
+})
+
+local Section = PlayerTab:AddSection({
+	Name = "Local Player"
+})
+
+local Section = CreditsTab:AddSection({
+	Name = "Credit to"
+})
+
+CreditsTab:AddLabel("Unggoy#3120")
 
 
---Admin
-local Admin = Window:NewTab("Admin")
-local AdminSection = Admin:NewSection("Admin")
+--Buttons--
+MainTab:AddButton({
+	Name = "Airhub - FPS",
+	Callback = function()
+      		AirHub()
+  	end    
+})
 
-AdminSection:NewButton("Infinite Yield", "Admin Script", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
+AdminTab:AddButton({
+	Name = "Infinite Yield",
+	Callback = function()
+      		InfYield()
+  	end    
+})
 
-
-AdminSection:NewButton("Fates Admin", "Admin Script", function()
-    loadstring(game:HttpGet("https://pastebin.com/raw/V7CH5jzn"))() 
-end)
-
-
-AdminSection:NewButton("CMD-X", "Admin Script", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
-end)
-
-
--- Others
-local Other = Window:NewTab("Other")
-local OtherSection = Other:NewSection("Other")
-
-OtherSection:NewButton("Proxima Hub", "Ninja Legends Script BY:TrixAde", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"))()
-end)
+MainTab:AddButton({
+	Name = "WheelHub - Vehicles",
+	Callback = function()
+      		WheelHub()
+  	end    
+})
 
 
-OtherSection:NewButton("HoHo Hub", "Blox Fruits OP Script BY:acsu123", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
-end)
+MainTab:AddButton({
+	Name = "FatesEsp - FPS",
+	Callback = function()
+      		FatesEsp()
+  	end    
+})
 
+AdminTab:AddButton({
+	Name = "CMD-X",
+	Callback = function()
+      		CMDX()
+  	end    
+})
 
-OtherSection:NewButton("Doors", "OP Doors Script BY:Vynixius", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))()
-end)
+AdminTab:AddButton({
+	Name = "FatesAdmin",
+	Callback = function()
+      		FatesAdmin()
+  	end    
+})
 
+OtherTab:AddButton({
+	Name = "NinjaLegends",
+	Callback = function()
+      		Proxima()
+  	end    
+})
 
-OtherSection:NewButton("BIG Paintball", "OP Paintball Script BY:radjah", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/radjahfromdiscord/iNEXT/main/source"))()
-end)
+OtherTab:AddButton({
+	Name = "Blox Fruits",
+	Callback = function()
+      		HOHO()
+  	end    
+})
 
+OtherTab:AddButton({
+	Name = "Doors",
+	Callback = function()
+      		Doors()
+  	end    
+})
 
-OtherSection:NewButton("Arcade Odyssey", "Script made BY:xtrey10x", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xtrey10x/xtrey10x-hub/main/Arcane%20Odyssey%20Script"))()
-end)
+OtherTab:AddButton({
+	Name = "BIG Paintball",
+	Callback = function()
+      		Paintball()
+  	end    
+})
 
+OtherTab:AddButton({
+	Name = "Arcane Odyssey",
+	Callback = function()
+      		ArcaneOD()
+  	end    
+})
 
-OtherSection:NewButton("Legend of Speed", "Simple AutoFarm BY:Unggoy#3120", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Unggoyz/SpeedLegendScript/main/SpeedLegendScript"))()
-end)
+OtherTab:AddButton({
+	Name = "LegendsOfSpeed",
+	Callback = function()
+      		LofS()
+  	end    
+})
 
-OtherSection:NewButton("BubbleGumClicker", "In development script BY:Unggoy#3120", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/Unggoyz/BubbleGumClicker/main/BGC%20Script'))()
-end)
+OtherTab:AddButton({
+	Name = "BubbleGumClicker",
+	Callback = function()
+      		BGC()
+  	end    
+})
 
--- Player
-local Player = Window:NewTab("Player")
-local PlayerSection = Player:NewSection("Local Player")
+CreditsTab:AddButton({
+	Name = "Destroy GUI",
+	Callback = function()
+      		exit()
+  	end    
+})
 
+PlayerTab:AddSlider({
+    Name = "Walk Speed",
+    Min = 0,
+    Max = 340,
+    Default = 16,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "",
+    Callback = function(Value)
+       game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+      
+    end
+})
 
-PlayerSection:NewSlider("WalkSpeed", "The Flash", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-end)
+PlayerTab:AddSlider({
+    Name = "Jump Power",
+    Min = 0,
+    Max = 340,
+    Default = 50,
+    Color = Color3.fromRGB(255,255,255),
+    Increment = 1,
+    ValueName = "",
+    Callback = function(Value)
+       game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+      
+    end
+})
 
+PlayerTab:AddButton({
+	Name = "Reset To Default",
+	Callback = function()
+      		Reset()
+  	end    
+})
 
-PlayerSection:NewSlider("JumpPower", "Hulk jump", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
-end)
-
-
-PlayerSection:NewButton("Reset Speed/Jump", "resets back to default", function()
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
-end)
-
-PlayerSection:NewToggle("Infinite Jump", "Jump Infinitely", function()
-        local InfiniteJumpEnabled = true
-        game:GetService("UserInputService").JumpRequest:connect(function()
-            if InfiniteJumpEnabled then
-                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
-            end
-        end)
-    end)
-
+OrionLib:Init()
