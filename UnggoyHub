@@ -64,6 +64,10 @@ function BGC()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/Unggoyz/BubbleGumClicker/main/BGC%20Script'))()
 end
 
+function HC6()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/HC6/main/HC6Script"))()
+end
+
 function Reset()
 	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
    	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
@@ -122,7 +126,7 @@ local Section = PlayerTab:AddSection({
 })
 
 local Section = CreditsTab:AddSection({
-	Name = "Credit to"
+	Name = "Credits"
 })
 
 CreditsTab:AddLabel("Unggoy#3120")
@@ -221,6 +225,12 @@ OtherTab:AddButton({
   	end    
 })
 
+OtherTab:AddButton({
+	Name = "Hoop Cental 6",
+	Callback = function()
+      		HC6()
+  	end    
+})
 CreditsTab:AddButton({
 	Name = "Destroy GUI",
 	Callback = function()
