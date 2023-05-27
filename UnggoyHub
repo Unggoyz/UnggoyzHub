@@ -68,6 +68,20 @@ function HC6()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/HC6/main/HC6Script"))()
 end
 
+function PSM()
+	local LoaderUrl = "https://raw.githubusercontent.com/ogamertv12/SylveonHub/main/Mobile.lua"
+	repeat wait() until game:IsLoaded()
+	loadstring(game:HttpGet(LoaderUrl))()
+end
+
+function PSPC()
+	local LoaderUrl = "https://raw.githubusercontent.com/ogamertv12/SylveonHub/main/NewLoader.lua"
+	repeat wait() until game:IsLoaded()
+	loadstring(game:HttpGet(LoaderUrl))()
+end
+
+	
+
 function Reset()
 	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
    	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
@@ -231,6 +245,23 @@ OtherTab:AddButton({
       		HC6()
   	end    
 })
+
+})
+OtherTab:AddButton({
+	Name = "Project Slayers Mobile",
+	Callback = function()
+      		PSM()
+  	end    
+})
+
+})
+OtherTab:AddButton({
+	Name = "Project Slayers PC",
+	Callback = function()
+      		PSPC()
+  	end    
+})
+
 CreditsTab:AddButton({
 	Name = "Destroy GUI",
 	Callback = function()
