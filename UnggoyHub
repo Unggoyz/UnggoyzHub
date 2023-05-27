@@ -69,15 +69,11 @@ function HC6()
 end
 
 function PSM()
-	local LoaderUrl = "https://raw.githubusercontent.com/ogamertv12/SylveonHub/main/Mobile.lua"
-	repeat wait() until game:IsLoaded()
-	loadstring(game:HttpGet(LoaderUrl))()	
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/ogamertv12/SylveonHub/main/Mobile.lua"))()
 end
 
 function PSPC()
-	local LoaderUrl = "https://raw.githubusercontent.com/ogamertv12/SylveonHub/main/NewLoader.lua"
-	repeat wait() until game:IsLoaded()
-	loadstring(game:HttpGet(LoaderUrl))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/ogamertv12/SylveonHub/main/NewLoader.lua"))()
 end
 
 function Reset()
