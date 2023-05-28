@@ -14,7 +14,7 @@ local Window = Rayfield:CreateWindow({
       Invite = "hdcfGHcv5", 
       RememberJoins = true 
    },
-   KeySystem = true, -- Set this to true to use our key system
+   KeySystem = true, 
    KeySettings = {
       Title = "Unggoyz Hub",
       Subtitle = "KEY resets weekly",
@@ -118,7 +118,7 @@ end
 local Buttons = AdminTab:CreateButton({
    Name = "Admin - Infinite Yield",
    Callback = function()
-          InfiniteYield()
+          InfYield()
    end,
 })
 
