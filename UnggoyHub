@@ -1,17 +1,49 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "UnggoyzHub", HidePremium = true, IntroText = "Welcome! | UnggoyzHub", SaveConfig = true, ConfigFolder = "Config"})
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-OrionLib:MakeNotification({
-	Name = "UnggoyzHub|Made By:Unggoy#3120",
-	Content = "WELCOME!!",
-	Image = "rbxassetid://9792634075",
-	Time = 10
+local Window = Rayfield:CreateWindow({
+   Name = "Unggoyz Hub | Unggoy#3120",
+   LoadingTitle = "Welcome! | Unggoyz Hub",
+   LoadingSubtitle = "Join https://discord.gg/dcfGHcv5 For Key",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, 
+      FileName = "Unggoyz Hub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "hdcfGHcv5", 
+      RememberJoins = true 
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Unggoyz Hub",
+      Subtitle = "KEY resets weekly",
+      Note = "KEY - https://discord.gg/dcfGHcv5 ",
+      FileName = "Unggoyz KEY", 
+      SaveKey = true, 
+      GrabKeyFromSite = false, 
+      Key = {"Monkey34"} 
+   }
 })
 
---Values--
 
+--Tabs
+local MainTab = Window:CreateTab("Main", 9792650361)
 
---Functions--
+local AdminTab = Window:CreateTab("Admin", 9792631281)
+
+local PlayerTab = Window:CreateTab("Player", 9792631906)
+
+local CreditTab = Window:CreateTab("Credits", 9792634075)
+--sections
+local SectionMain = MainTab:CreateSection("Main Scripts")
+
+local SectionAdmin = AdminTab:CreateSection("Admin Scripts")
+
+local SectionPlayer = PlayerTab:CreateSection("Local Player")
+
+local SectionCredit = CreditTab:CreateSection("Credits")
+--functions
 function InfYield()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end
@@ -78,211 +110,168 @@ function Reset()
 end
 
 function exit()
-	OrionLib:Destroy()
+	Rayfield:Destroy()
 end
 
-	
---Tabs--
-local MainTab = Window:MakeTab({
-	Name = "Main",
-	Icon = "rbxassetid://9792650361",
-	PremiumOnly = false
+
+--buttons
+local Buttons = AdminTab:CreateButton({
+   Name = "Admin - Infinite Yield",
+   Callback = function()
+          InfiniteYield()
+   end,
 })
 
-local AdminTab = Window:MakeTab({
-	Name = "Admin",
-	Icon = "rbxassetid://10006089373",
-	PremiumOnly = false
+local Buttons = AdminTab:CreateButton({
+   Name = "Admin - CMDX",
+   Callback = function()
+          CMDX()
+   end,
 })
 
-local OtherTab = Window:MakeTab({
-	Name = "Other",
-	Icon = "rbxassetid://9792634811",
-	PremiumOnly = false
+local Buttons = AdminTab:CreateButton({
+   Name = "Admin - Fates Admin",
+   Callback = function()
+          FatesAdmin()
+   end,
 })
 
-local PlayerTab = Window:MakeTab({
-	Name = "Player",
-	Icon = "rbxassetid://9766672602",
-	PremiumOnly = false
+local Buttons = MainTab:CreateButton({
+   Name = "Universal - Fates ESP",
+   Callback = function()
+          FatesEsp()
+   end,
 })
 
-local CreditsTab = Window:MakeTab({
-	Name = "Credits",
-	Icon = "rbxassetid://9766675093",
-	PremiumOnly = false
-})
---Sections--
-local Section = MainTab:AddSection({
-	Name = "Universal Scripts"
+local Buttons = MainTab:CreateButton({
+   Name = "Universal - Air Hub",
+   Callback = function()
+          AirHub()
+   end,
 })
 
-local Section = AdminTab:AddSection({
-	Name = "Admin Scripts"
+local Buttons = MainTab:CreateButton({
+   Name = "Universal - Wheel Hub",
+   Callback = function()
+          WheelHub()
+   end,
 })
 
-local Section = OtherTab:AddSection({
-	Name = "More Scripts"
+local Buttons = MainTab:CreateButton({
+   Name = "Ninja Legends - Proxima Hub",
+   Callback = function()
+          Proxima()
+   end,
 })
 
-local Section = PlayerTab:AddSection({
-	Name = "Local Player"
+local Buttons = MainTab:CreateButton({
+   Name = "Blox Fruits - HOHO HUB",
+   Callback = function()
+          HOHO()
+   end,
 })
 
-local Section = CreditsTab:AddSection({
-	Name = "Credits"
+local Buttons = MainTab:CreateButton({
+   Name = "Doors - Vynixius",
+   Callback = function()
+          Doors()
+   end,
 })
 
-CreditsTab:AddLabel("Unggoy#3120")
-
-
---Buttons--
-MainTab:AddButton({
-	Name = "Airhub - FPS",
-	Callback = function()
-      		AirHub()
-  	end    
+local Buttons = MainTab:CreateButton({
+   Name = "PaintBall - iNEXT",
+   Callback = function()
+          Paintball()
+   end,
 })
 
-AdminTab:AddButton({
-	Name = "Infinite Yield",
-	Callback = function()
-      		InfYield()
-  	end    
+local Buttons = MainTab:CreateButton({
+   Name = "Arcane Oddysey - xtrey10x",
+   Callback = function()
+          ArcaneOD()
+   end,
 })
 
-MainTab:AddButton({
-	Name = "WheelHub - Vehicles",
-	Callback = function()
-      		WheelHub()
-  	end    
+local Buttons = MainTab:CreateButton({
+   Name = "Legend Of Speed - Unggoyz Hub",
+   Callback = function()
+          LofS()
+   end,
 })
 
-
-MainTab:AddButton({
-	Name = "FatesEsp - FPS",
-	Callback = function()
-      		FatesEsp()
-  	end    
+local Buttons = MainTab:CreateButton({
+   Name = "Bubble Gum Clicker - Unggoyz Hub",
+   Callback = function()
+          BGC()
+   end,
 })
 
-AdminTab:AddButton({
-	Name = "CMD-X",
-	Callback = function()
-      		CMDX()
-  	end    
+local Buttons = MainTab:CreateButton({
+   Name = "Hoop Cental 6 - LOLking123456",
+   Callback = function()
+          HC6()
+   end,
 })
 
-AdminTab:AddButton({
-	Name = "FatesAdmin",
-	Callback = function()
-      		FatesAdmin()
-  	end    
+local Buttons = MainTab:CreateButton({
+   Name = "Project Slayers - RBScripts",
+   Callback = function()
+          PS()
+   end,
 })
 
-OtherTab:AddButton({
-	Name = "NinjaLegends",
-	Callback = function()
-      		Proxima()
-  	end    
+--sliders
+
+local Slider = PlayerTab:CreateSlider({
+   Name = "Walk Speed",
+   Range = {0, 340},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "SpeedSlider", 
+   Callback = function(Value)
+		 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value			
+   end,
 })
 
-OtherTab:AddButton({
-	Name = "Blox Fruits",
-	Callback = function()
-      		HOHO()
-  	end    
+local Slider = PlayerTab:CreateSlider({
+   Name = "Walk Speed",
+   Range = {0, 340},
+   Increment = 1,
+   Suffix = "Power",
+   CurrentValue = 50,
+   Flag = "JumpSlider", 
+   Callback = function(Value)
+		 game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value			
+   end,
 })
 
-OtherTab:AddButton({
-	Name = "Doors",
-	Callback = function()
-      		Doors()
-  	end    
+local Button = PlayerTab:CreateButton({
+   Name = "Reset To Default",
+   Callback = function()
+   		Reset()
+  	
+   end,
 })
 
-OtherTab:AddButton({
-	Name = "BIG Paintball",
-	Callback = function()
-      		Paintball()
-  	end    
+local Label = CreditTab:CreateLabel("Hub - Unggoy#3120")
+local Label = CreditTab:CreateLabel("Library - Rayfield/Shelx")
+local Label = CreditTab:CreateLabel("Discord - https://discord.gg/dcfGHcv5")
+
+local Button = CreditTab:CreateButton({
+   Name = "Destroy UI",
+   Callback = function()
+   		exit()
+  	
+   end,
 })
 
-OtherTab:AddButton({
-	Name = "Arcane Odyssey",
-	Callback = function()
-      		ArcaneOD()
-  	end    
-})
-
-OtherTab:AddButton({
-	Name = "LegendsOfSpeed",
-	Callback = function()
-      		LofS()
-  	end    
-})
-
-OtherTab:AddButton({
-	Name = "BubbleGumClicker",
-	Callback = function()
-      		BGC()
-  	end    
-})
-
-OtherTab:AddButton({
-	Name = "Hoop Cental 6",
-	Callback = function()
-      		HC6()
-  	end    
-})
-
-OtherTab:AddButton({
-	Name = "Project Slayers",
-	Callback = function()
-      		PS()
-  	end    
-})
-
-CreditsTab:AddButton({
-	Name = "Destroy GUI",
-	Callback = function()
-      		exit()
-  	end    
-})
-
-PlayerTab:AddSlider({
-    Name = "Walk Speed",
-    Min = 0,
-    Max = 340,
-    Default = 16,
+local ColorPicker = PlayerTab:CreateColorPicker({
+    Name = "Customize - WIP",
     Color = Color3.fromRGB(255,255,255),
-    Increment = 1,
-    ValueName = "",
+    Flag = "Custom", 
     Callback = function(Value)
-       game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-      
-    end
+    	
+    	
+	end
 })
-
-PlayerTab:AddSlider({
-    Name = "Jump Power",
-    Min = 0,
-    Max = 340,
-    Default = 50,
-    Color = Color3.fromRGB(255,255,255),
-    Increment = 1,
-    ValueName = "",
-    Callback = function(Value)
-       game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-      
-    end
-})
-
-PlayerTab:AddButton({
-	Name = "Reset To Default",
-	Callback = function()
-      		Reset()
-  	end    
-})
-
-OrionLib:Init()
