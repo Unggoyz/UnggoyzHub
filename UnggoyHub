@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "UnggoyzHub", HidePremium = false, IntroText = "Welcome! | UnggoyzHub", SaveConfig = true, ConfigFolder = "Config"})
+local Window = OrionLib:MakeWindow({Name = "UnggoyzHub", HidePremium = true, IntroText = "Welcome! | UnggoyzHub", SaveConfig = true, ConfigFolder = "Config"})
 
 OrionLib:MakeNotification({
 	Name = "UnggoyzHub|Made By:Unggoy#3120",
