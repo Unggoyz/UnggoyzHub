@@ -68,12 +68,8 @@ function HC6()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/HC6/main/HC6Script"))()
 end
 
-function PSM()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/ogamertv12/SylveonHub/main/Mobile.lua"))()
-end
-
-function PSPC()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/ogamertv12/SylveonHub/main/NewLoader.lua"))()
+function PS()
+	loadstring(game:HttpGet("https://rbscripts.net/script/ProjectSlayersRBScripts"))()
 end
 
 function Reset()
@@ -240,19 +236,10 @@ OtherTab:AddButton({
   	end    
 })
 
-})
 OtherTab:AddButton({
-	Name = "Project Slayers Mobile",
+	Name = "Project Slayers",
 	Callback = function()
-      		PSM()
-  	end    
-})
-
-})
-OtherTab:AddButton({
-	Name = "Project Slayers PC",
-	Callback = function()
-      		PSPC()
+      		PS()
   	end    
 })
 
