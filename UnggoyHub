@@ -3,26 +3,26 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "Unggoyz Hub | Unggoy#3120",
    LoadingTitle = "Welcome! | Unggoyz Hub",
-   LoadingSubtitle = "Join https://discord.gg/dcfGHcv5 For Key",
+   LoadingSubtitle = "KEY - https://pastebin.com/122pp0vk",
    ConfigurationSaving = {
       Enabled = false,
-      FolderName = nil, 
+      FolderName = nil, -- Create a custom folder for your hub/game
       FileName = "Unggoyz Hub"
    },
    Discord = {
       Enabled = false,
-      Invite = "hdcfGHcv5", 
-      RememberJoins = true 
+      Invite = "hdcfGHcv5", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
    },
-   KeySystem = true, 
+   KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
       Title = "Unggoyz Hub",
       Subtitle = "KEY resets weekly",
-      Note = "KEY - https://discord.gg/dcfGHcv5 ",
-      FileName = "Unggoyz KEY", 
-      SaveKey = true, 
-      GrabKeyFromSite = false, 
-      Key = {"Monkey34"} 
+      Note = "KEY-https://pastebin.com/122pp0vk",
+      FileName = "Unggoyz KEY", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Banana69420"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
 
@@ -35,15 +35,19 @@ local AdminTab = Window:CreateTab("Admin", 9792631281)
 local PlayerTab = Window:CreateTab("Player", 9792631906)
 
 local CreditTab = Window:CreateTab("Credits", 9792634075)
---sections
-local SectionMain = MainTab:CreateSection("Main Scripts")
 
-local SectionAdmin = AdminTab:CreateSection("Admin Scripts")
+--sections
+
+local SectionMain = MainTab:CreateSection("Main Scripts ✅=Operational, ⚠️=Patched/Broken, 🔑=Key Required")
+
+local SectionAdmin = AdminTab:CreateSection("Admin Scripts ✅=Operational, ⚠️=Patched/Broken, 🔑=Key Required")
 
 local SectionPlayer = PlayerTab:CreateSection("Local Player")
 
 local SectionCredit = CreditTab:CreateSection("Credits")
+
 --functions
+
 function InfYield()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
 end
@@ -53,7 +57,7 @@ function AirHub()
 end
 
 function WheelHub()
-	loadstring(game:HttpGet('https://scripts.luawl.com/15362/KeshHub.lua'))()
+	loadstring(game:HttpGet('https://keshhub.xyz/.loader', true))()
 end
 
 function FatesEsp()
@@ -85,7 +89,7 @@ function Paintball()
 end
 
 function ArcaneOD()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/xtrey10x/xtrey10x-hub/main/Arcane%20Odyssey%20Script"))()
+	loadstring(game:HttpGet('https://kidachi.xyz/Odyssey', true))()
 end
 
 function LofS()
@@ -104,6 +108,23 @@ function PS()
 	loadstring(game:HttpGet("https://rbscripts.net/script/ProjectSlayersRBScripts"))()
 end
 
+function Voxl()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/KidichiHB/Kidachi/main/Scripts/VoxlBlade", true))()
+end
+
+function onRenderStepped()
+    if getgenv().noclip then
+        local character = game.Players.LocalPlayer.Character
+        if character then
+            for _, part in ipairs(character:GetDescendants()) do
+                if part:IsA("BasePart") then
+                    part.CanCollide = false
+                end
+            end
+        end
+    end
+end
+
 function Reset()
 	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
    	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
@@ -113,115 +134,198 @@ function exit()
 	Rayfield:Destroy()
 end
 
+--values--
+getgenv().noclip = Value
 
---buttons
+--buttons--
+--SCRIPTS--
 local Buttons = AdminTab:CreateButton({
-   Name = "Admin - Infinite Yield",
+   Name = "Admin - Infinite Yield✅",
    Callback = function()
-          InfYield()
+          InfiniteYield()
    end,
 })
 
 local Buttons = AdminTab:CreateButton({
-   Name = "Admin - CMDX",
+   Name = "Admin - CMDX✅",
    Callback = function()
           CMDX()
    end,
 })
 
 local Buttons = AdminTab:CreateButton({
-   Name = "Admin - Fates Admin",
+   Name = "Admin - Fates Admin✅",
    Callback = function()
           FatesAdmin()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Universal - Fates ESP",
+   Name = "Universal - Fates ESP✅",
    Callback = function()
           FatesEsp()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Universal - Air Hub",
+   Name = "Universal - Air Hub✅",
    Callback = function()
           AirHub()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Universal - Wheel Hub",
+   Name = "Universal - Wheel Hub ❔Uncertain❔",
    Callback = function()
           WheelHub()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Ninja Legends - Proxima Hub",
+   Name = "Ninja Legends - Proxima Hub✅",
    Callback = function()
           Proxima()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Blox Fruits - HOHO HUB",
+   Name = "Blox Fruits - HOHO HUB✅🔑",
    Callback = function()
           HOHO()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Doors - Vynixius",
+   Name = "Doors - Vynixius✅",
    Callback = function()
           Doors()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "PaintBall - iNEXT",
+   Name = "PaintBall - iNEXT ⚠️ Patched/Detected ⚠️",
    Callback = function()
           Paintball()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Arcane Oddysey - xtrey10x",
+   Name = "Arcane Oddysey - Kidachi✅🔑",
    Callback = function()
           ArcaneOD()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Legend Of Speed - Unggoyz Hub",
+   Name = "Legend Of Speed - Unggoyz Hub✅",
    Callback = function()
           LofS()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Bubble Gum Clicker - Unggoyz Hub",
+   Name = "Bubble Gum Clicker - Unggoyz Hub✅",
    Callback = function()
           BGC()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Hoop Cental 6 - LOLking123456",
+   Name = "Hoop Cental 6 - LOLking123456 ⚠️Not Working⚠️",
    Callback = function()
           HC6()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Project Slayers - RBScripts",
+   Name = "Project Slayers - RBScripts✅",
    Callback = function()
           PS()
    end,
 })
 
---sliders
+local Buttons = MainTab:CreateButton({
+   Name = "Voxlblade - Kidachi✅🔑",
+   Callback = function()
+          Voxl()
+   end,
+})
+--SCRIPTS--
 
+--toggles--
+
+--INF JUMP--
+local Toggle = PlayerTab:CreateToggle({
+   Name = "Infinite Jump",
+   CurrentValue = false,
+   Flag = "",
+   Callback = function(State)
+   		InfiniteJumpEnabled = State
+   		game:GetService("UserInputService").JumpRequest:connect(function()
+   			if InfiniteJumpEnabled then
+   				game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass"Humanoid":ChangeState("Jumping")
+   			end
+   		end)
+   	end,
+})
+--INF JUMP--
+
+--NO CLIP--
+local OriginalCollisionStates = {}
+
+local Toggle = PlayerTab:CreateToggle({
+    Name = "No Clip",
+    CurrentValue = false,
+    Flag = "",
+    Callback = function(Value)
+        getgenv().noclip = Value
+
+        if getgenv().noclip then
+            local character = game.Players.LocalPlayer.Character
+            if character then
+                for _, part in ipairs(character:GetDescendants()) do
+                    if part:IsA("BasePart") then
+                        OriginalCollisionStates[part] = part.CanCollide
+                        part.CanCollide = false
+                    end
+                end
+            end
+        else
+            for part, canCollide in pairs(OriginalCollisionStates) do
+                if part:IsA("BasePart") then
+                    part.CanCollide = canCollide
+                end
+            end
+            OriginalCollisionStates = {}
+        end
+    end,
+})
+
+game:GetService('RunService').RenderStepped:Connect(onRenderStepped)
+--NO CLIP--
+
+--FULL BRIGHT--
+local Lighting = game:GetService("Lighting")
+
+local fullbrightEnabled = false
+
+local function toggleFullbright(state)
+    fullbrightEnabled = state
+    Lighting.GlobalShadows = not state
+    Lighting.Ambient = state and Color3.new(1, 1, 1) or Color3.new(0.5, 0.5, 0.5)
+end
+
+local ToggleFullbright = PlayerTab:CreateToggle({
+    Name = "Fullbright",
+    CurrentValue = false,
+    Flag = "ToggleFullbright",
+    Callback = function(state)
+        toggleFullbright(state)
+    end,
+})
+--FULL BRIGHT--
+
+--SLIDERS--
 local Slider = PlayerTab:CreateSlider({
    Name = "Walk Speed",
    Range = {0, 340},
@@ -255,7 +359,7 @@ local Button = PlayerTab:CreateButton({
 })
 
 local Label = CreditTab:CreateLabel("Hub - Unggoy#3120")
-local Label = CreditTab:CreateLabel("Library - Rayfield/Shelx")
+local Label = CreditTab:CreateLabel("Library - Rayfield/Shelx - https://discord.gg/sirius")
 local Label = CreditTab:CreateLabel("Discord - https://discord.gg/dcfGHcv5")
 
 local Button = CreditTab:CreateButton({
@@ -266,12 +370,6 @@ local Button = CreditTab:CreateButton({
    end,
 })
 
-local ColorPicker = PlayerTab:CreateColorPicker({
-    Name = "Customize - WIP",
-    Color = Color3.fromRGB(255,255,255),
-    Flag = "Custom", 
-    Callback = function(Value)
-    	
-    	
-	end
-})
+--CUSTOMIZE--
+
+--CUSTOMIZE--
