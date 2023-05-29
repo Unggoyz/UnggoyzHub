@@ -142,7 +142,7 @@ getgenv().noclip = Value
 local Buttons = AdminTab:CreateButton({
    Name = "Admin - Infinite Yield✅",
    Callback = function()
-          InfiniteYield()
+          InfYield()
    end,
 })
 
