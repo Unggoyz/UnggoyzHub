@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-   Name = "Unggoyz Hub | Unggoy#3120",
+   Name = "Unggoyz Hub | Script Hub",
    LoadingTitle = "Welcome! | Unggoyz Hub",
    LoadingSubtitle = "KEY - https://pastebin.com/122pp0vk",
    ConfigurationSaving = {
@@ -339,7 +339,7 @@ local Slider = PlayerTab:CreateSlider({
 })
 
 local Slider = PlayerTab:CreateSlider({
-   Name = "Walk Speed",
+   Name = "Jump Boost",
    Range = {0, 340},
    Increment = 1,
    Suffix = "Power",
@@ -358,7 +358,7 @@ local Button = PlayerTab:CreateButton({
    end,
 })
 
-local Label = CreditTab:CreateLabel("Hub - Unggoy#3120")
+local Label = CreditTab:CreateLabel("Hub - not_markerz")
 local Label = CreditTab:CreateLabel("Library - Rayfield/Shelx - https://discord.gg/sirius")
 local Label = CreditTab:CreateLabel("Discord - https://discord.gg/dcfGHcv5")
 
