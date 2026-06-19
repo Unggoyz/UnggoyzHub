@@ -74,6 +74,11 @@ end
 function BGC()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/Unggoyz/BubbleGumClicker/main/BGC%20Script'))()
 end
+
+function Novoline()
+	loadstring(game:HttpGet("https://novoline.pro"))()
+end
+
 --NOCLIP--
 function onRenderStepped()
     if getgenv().noclip then
@@ -271,6 +276,13 @@ local Buttons = AdminTab:CreateButton({
    Name = "Admin - Fates Admin✅",
    Callback = function()
           FatesAdmin()
+   end,
+})
+
+local Buttons = AdminTab:CreateButton({
+   Name = "Admin - Novoline✅",
+   Callback = function()
+          Novoline()
    end,
 })
 
