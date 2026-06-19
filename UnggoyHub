@@ -3,10 +3,10 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Window = Rayfield:CreateWindow({
    Name = "Yvxn Hub",
    LoadingTitle = "Welcome! | Yvxn Hub",
-   LoadingSubtitle = "Testing",
+   LoadingSubtitle = "Enjoy!",
    ConfigurationSaving = {
-      Enabled = true
-      FolderName = Yvxn Hub, -- Create a custom folder for your hub/game
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
       FileName = "Yvxn Config"
    },
    Discord = {
@@ -17,15 +17,14 @@ local Window = Rayfield:CreateWindow({
    KeySystem = true, -- Set this to true to use our key system
    KeySettings = {
       Title = "Yvxn Hub",
-      Subtitle = "Join Discord For Key",
-      Note = "Join Discord For Key",
+      Subtitle = "Welcome",
+      Note = "Join KWn7cA3SXQ For Key",
       FileName = "Yvxn KEY", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"YvxnDaGoat"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+      Key = {"Yvxn"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
 })
-
 
 --Tabs
 local MainTab = Window:CreateTab("Main", 9792650361)
@@ -46,22 +45,18 @@ local SectionPlayer = PlayerTab:CreateSection("Local Player")
 
 local SectionCredit = CreditTab:CreateSection("Credits")
 
+--SERVICES--
+local DEFAULT_WALK_SPEED = 16
+local DEFAULT_JUMP_POWER = 50
+
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+--SERVICES--
+
 --functions
 
 function InfYield()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
-end
-
-function AirHub()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/AirHub/main/AirHub.lua"))()
-end
-
-function WheelHub()
-	loadstring(game:HttpGet('https://keshhub.xyz/.loader', true))()
-end
-
-function FatesEsp()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/fatesc/fates-esp/main/main.lua'))()
 end
 
 function CMDX()
@@ -72,26 +67,6 @@ function FatesAdmin()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))()
 end
 
-function Proxima()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/TrixAde/Proxima-Hub/main/Main.lua"))()
-end
-
-function HOHO()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI'))()
-end
-
-function Doors()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Script.lua"))()
-end
-
-function Paintball()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/radjahfromdiscord/iNEXT/main/source"))()
-end
-
-function ArcaneOD()
-	loadstring(game:HttpGet('https://kidachi.xyz/Odyssey', true))()
-end
-
 function LofS()
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/Unggoyz/SpeedLegendScript/main/SpeedLegendScript"))()
 end
@@ -99,19 +74,7 @@ end
 function BGC()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/Unggoyz/BubbleGumClicker/main/BGC%20Script'))()
 end
-
-function HC6()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/LOLking123456/HC6/main/HC6Script"))()
-end
-
-function PS()
-	loadstring(game:HttpGet("https://rbscripts.net/script/ProjectSlayersRBScripts"))()
-end
-
-function Voxl()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/KidichiHB/Kidachi/main/Scripts/VoxlBlade", true))()
-end
-
+--NOCLIP--
 function onRenderStepped()
     if getgenv().noclip then
         local character = game.Players.LocalPlayer.Character
@@ -124,11 +87,162 @@ function onRenderStepped()
         end
     end
 end
-
-function Reset()
-	game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
-   	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+--NOCLIP--
+--MOVEMENT--
+local function getHumanoid()
+    local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+    return character:WaitForChild("Humanoid")
 end
+
+local function setWalkSpeed(value)
+    local humanoid = getHumanoid()
+    humanoid.WalkSpeed = value
+end
+
+local function setJumpPower(value)
+    local humanoid = getHumanoid()
+    humanoid.JumpPower = value
+end
+
+local function resetMovement(slider1, slider2)
+    local humanoid = getHumanoid()
+
+    humanoid.WalkSpeed = DEFAULT_WALK_SPEED
+    humanoid.JumpPower = DEFAULT_JUMP_POWER
+
+    if slider1 then
+        slider1:Set(DEFAULT_WALK_SPEED)
+    end
+
+    if slider2 then
+        slider2:Set(DEFAULT_JUMP_POWER)
+    end
+end
+--MOVEMENT--
+--ESP--
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local ESPEnabled = false
+
+local ESPObjects = {}
+local NameObjects = {}
+local Connections = {}
+
+local function createHighlight(char)
+    if char:FindFirstChild("ESP_Highlight") then
+        char.ESP_Highlight:Destroy()
+    end
+
+    local highlight = Instance.new("Highlight")
+    highlight.Name = "ESP_Highlight"
+    highlight.Adornee = char
+    highlight.FillColor = Color3.fromRGB(255, 60, 60)
+    highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+    highlight.FillTransparency = 0.4
+    highlight.OutlineTransparency = 0
+    highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+    highlight.Parent = char
+
+    return highlight
+end
+
+local function createNameESP(player, character)
+    local head = character:FindFirstChild("Head")
+    if not head then return end
+
+    if NameObjects[player] then
+        NameObjects[player]:Destroy()
+    end
+
+    local billboard = Instance.new("BillboardGui")
+    billboard.Name = "NameESP"
+    billboard.Size = UDim2.new(0, 120, 0, 30)
+    billboard.StudsOffset = Vector3.new(0, 2.5, 0)
+    billboard.AlwaysOnTop = true
+    billboard.Adornee = head
+    billboard.Parent = head
+
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(1, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.TextColor3 = Color3.fromRGB(255, 255, 255)
+    label.TextStrokeTransparency = 0
+    label.TextScaled = true
+    label.Font = Enum.Font.SourceSansBold
+    label.Text = player.DisplayName .. " (@" .. player.Name .. ")"
+    label.Parent = billboard
+
+    NameObjects[player] = billboard
+end
+
+local function isValid(player)
+    return player ~= LocalPlayer
+end
+
+local function applyESP(player)
+    if not isValid(player) then return end
+
+    local function onCharacter(char)
+        if not ESPEnabled then return end
+
+        ESPObjects[player] = createHighlight(char)
+        createNameESP(player, char)
+    end
+
+    if player.Character then
+        onCharacter(player.Character)
+    end
+
+    if Connections[player] then
+        Connections[player]:Disconnect()
+    end
+
+    Connections[player] = player.CharacterAdded:Connect(onCharacter)
+end
+
+local function enableESP()
+    if ESPEnabled then return end
+    ESPEnabled = true
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        applyESP(player)
+    end
+
+    Connections._join = Players.PlayerAdded:Connect(function(player)
+        if ESPEnabled then
+            applyESP(player)
+        end
+    end)
+end
+
+local function disableESP()
+    ESPEnabled = false
+
+    for _, highlight in pairs(ESPObjects) do
+        if highlight then highlight:Destroy() end
+    end
+    table.clear(ESPObjects)
+
+    for _, nameGui in pairs(NameObjects) do
+        if nameGui then nameGui:Destroy() end
+    end
+    table.clear(NameObjects)
+
+    for _, conn in pairs(Connections) do
+        if conn then conn:Disconnect() end
+    end
+    table.clear(Connections)
+end
+
+local function toggleESP()
+    if ESPEnabled then
+        disableESP()
+    else
+        enableESP()
+    end
+end
+--ESP--
 
 function exit()
 	Rayfield:Destroy()
@@ -161,98 +275,36 @@ local Buttons = AdminTab:CreateButton({
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Universal - Fates ESP✅",
-   Callback = function()
-          FatesEsp()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "Universal - Air Hub✅",
-   Callback = function()
-          AirHub()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "Universal - Wheel Hub ❔Uncertain❔",
-   Callback = function()
-          WheelHub()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "Ninja Legends - Proxima Hub✅",
-   Callback = function()
-          Proxima()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "Blox Fruits - HOHO HUB✅🔑",
-   Callback = function()
-          HOHO()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "Doors - Vynixius✅",
-   Callback = function()
-          Doors()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "PaintBall - iNEXT ⚠️ Patched/Detected ⚠️",
-   Callback = function()
-          Paintball()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "Arcane Oddysey - Kidachi✅🔑",
-   Callback = function()
-          ArcaneOD()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "Legend Of Speed - Unggoyz Hub✅",
+   Name = "Legend Of Speed - Unggoyz Hub⚠️",
    Callback = function()
           LofS()
    end,
 })
 
 local Buttons = MainTab:CreateButton({
-   Name = "Bubble Gum Clicker - Unggoyz Hub✅",
+   Name = "Bubble Gum Clicker - Unggoyz Hub⚠️",
    Callback = function()
           BGC()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "Hoop Cental 6 - LOLking123456 ⚠️Not Working⚠️",
-   Callback = function()
-          HC6()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "Project Slayers - RBScripts✅",
-   Callback = function()
-          PS()
-   end,
-})
-
-local Buttons = MainTab:CreateButton({
-   Name = "Voxlblade - Kidachi✅🔑",
-   Callback = function()
-          Voxl()
    end,
 })
 --SCRIPTS--
 
 --toggles--
+
+--ESP--
+PlayerTab:CreateToggle({
+    Name = "ESP",
+    CurrentValue = false,
+    Flag = "ESP_Names_Toggle",
+    Callback = function(Value)
+        if Value then
+            enableESP()
+        else
+            disableESP()
+        end
+    end,
+})
+--ESP--
 
 --INF JUMP--
 local Toggle = PlayerTab:CreateToggle({
@@ -324,43 +376,37 @@ local ToggleFullbright = PlayerTab:CreateToggle({
     end,
 })
 --FULL BRIGHT--
-
 --SLIDERS--
-local Slider = PlayerTab:CreateSlider({
-   Name = "Walk Speed",
-   Range = {0, 340},
-   Increment = 1,
-   Suffix = "Speed",
-   CurrentValue = 16,
-   Flag = "", 
-   Callback = function(Value)
-		 game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value			
-   end,
+local WalkSpeedSlider = PlayerTab:CreateSlider({
+    Name = "Walk Speed",
+    Range = {0, 340},
+    Increment = 1,
+    CurrentValue = DEFAULT_WALK_SPEED,
+    Callback = function(value)
+        setWalkSpeed(value)
+    end
 })
 
-local Slider = PlayerTab:CreateSlider({
-   Name = "Jump Boost",
-   Range = {0, 340},
-   Increment = 1,
-   Suffix = "Power",
-   CurrentValue = 50,
-   Flag = "", 
-   Callback = function(Value)
-		 game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value			
-   end,
+local JumpPowerSlider = PlayerTab:CreateSlider({
+    Name = "Jump Boost",
+    Range = {0, 340},
+    Increment = 1,
+    CurrentValue = DEFAULT_JUMP_POWER,
+    Callback = function(value)
+        setJumpPower(value)
+    end
 })
 
-local Button = PlayerTab:CreateButton({
-   Name = "Reset To Default",
-   Callback = function()
-   		Reset()
-  	
-   end,
+PlayerTab:CreateButton({
+    Name = "Reset To Default",
+    Callback = function()
+        resetMovement(WalkSpeedSlider, JumpPowerSlider)
+    end
 })
 
 local Label = CreditTab:CreateLabel("Hub - not_markerz")
-local Label = CreditTab:CreateLabel("Library - Rayfield/Shelx - https://discord.gg/sirius")
-local Label = CreditTab:CreateLabel("Discord - https://discord.gg/dcfGHcv5")
+local Label = CreditTab:CreateLabel("Library - Rayfield/Shelx - https://discord.gg/8F9zdsFBMY")
+local Label = CreditTab:CreateLabel("Discord - https://discord.gg/KWn7cA3SXQ")
 
 local Button = CreditTab:CreateButton({
    Name = "Destroy UI",
@@ -374,7 +420,7 @@ local Button = CreditTab:CreateButton({
 local ColorPicker = PlayerTab:CreateColorPicker({
     Name = "Customize",
     Color = Color3.fromRGB(255,255,255),
-    Flag = "Cuztomize",
+    Flag = "Customize",
 Callback = function(Value) -- this will change the background color
         Rayfield.Theme.Default["ElementStroke"] = Value
         Rayfield.Theme.Default["Shadow"] = Value
